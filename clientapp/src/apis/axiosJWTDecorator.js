@@ -1,6 +1,7 @@
 import axios, { AxiosResponse, AxiosRequestConfig } from "axios";
 import * as microsoftTeams from "@microsoft/teams-js";
 import i18n from "i18n";
+import { toast } from "react-hot-toast";
 
 export class AxiosJWTDecorator {
   async get(url, handleError, needAuthorizationHeader = true, config) {
@@ -10,6 +11,7 @@ export class AxiosJWTDecorator {
       }
       return await axios.get(url, config);
     } catch (error) {
+      toast.error(error.message);
       if (handleError) {
         this.handleError(error);
         throw error;
@@ -24,6 +26,7 @@ export class AxiosJWTDecorator {
       config = await this.setupAuthorizationHeader(config);
       return await axios.delete(url, config);
     } catch (error) {
+      toast.error(error.message);
       if (handleError) {
         this.handleError(error);
         throw error;
@@ -38,6 +41,7 @@ export class AxiosJWTDecorator {
       config = await this.setupAuthorizationHeader(config);
       return await axios.post(url, data, config);
     } catch (error) {
+      toast.error(error.message);
       if (handleError) {
         this.handleError(error);
         throw error;
@@ -53,6 +57,7 @@ export class AxiosJWTDecorator {
       return await axios.put(url, data, config);
     } catch (error) {
       if (handleError) {
+        toast.error(error.message);
         this.handleError(error);
         throw error;
       } else {
