@@ -1,7 +1,8 @@
 {
   "name": "clientapp",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.0.1",
+  "description": "This is just a template react app for teams custom applications. It should have Fluent UI, teams-js SDK and teams authentication out of the box. Moreover, it uses yarn as the package manager. Utils js for sanitizing urls and auth headers are also included",
+  "bin": "./bin/cli.js",
   "dependencies": {
     "@braintree/sanitize-url": "^5.0.2",
     "@fluentui/react-northstar": "^0.59.0",
